@@ -1,19 +1,19 @@
 # Fantasy Football
 This is a python web application part of udaity full stack developer project 3 assignment.
-This application is created on Flask Web Development framework. This application allows user to create and manage their football team. The project allows user to 
-to enjoy application full access using either facebook or amazon IDs.Please follow the procedure to install 
+This application is created using Flask Web Development framework. This application allows user to create and manage their football team. The application have both public and private areas based on logged in user.
+In order to enjoy creating creating your own team application allows access using either facebook or amazon IDs.Please follow the procedure to install 
 and run the application.
 
 **Requirement**
 -----------------------------------------------------------
 The project has been run from a vagrant virtual environment, which have following requirement:
 
-Python 2.7
-SQLite
-SQLAlchemy
-Flask
-Flask extension SeaSurf
-Python libraries: httplib2,werkzeug, oauth2client and Requests
+* Python 2.7
+* SQLite
+* SQLAlchemy
+* Flask
+* Flask extension SeaSurf
+* Python libraries: httplib2,werkzeug, oauth2client and Requests
 
 **How to Run Web Application**
 -----------------------------------------------------------
