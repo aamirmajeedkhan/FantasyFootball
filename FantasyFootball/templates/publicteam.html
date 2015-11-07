@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Fantasy Football</h1>
+    <h2>{{ team.name }} </h2>
+    
+    
+  
+</div>
+
+	{% if players !=[] %}	
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-3">
+				<h2>Striker</h2>
+					{% for p in players %}
+						{% if p.position == 'Striker' %}
+							<div class="menu-item">
+								<h3>{{p.name}}</h3>
+								<p>{{p.description}}</p>
+								{% if p.snap_url %}
+									<p><a target="_tab" href="{{ p.snap_url }}">Snap</a></p>
+								{% endif %}								
+								
+							</div>
+						{% endif %}
+					{% endfor %}
+			</div>
+			<div class="col-md-4">			
+				<h2>Defender</h2>
+					{% for p in players %}
+						{% if p.position == 'Defender' %}
+						<div class="menu-item">
+								<h3>{{p.name}}</h3>
+								<p>{{p.description}}</p>
+								{% if p.snap_url %}
+									<p><a target="_tab" href="{{ p.snap_url }}">Snap</a></p>
+								{% endif %}									
+								
+							</div>
+						{% endif %}
+					{% endfor %}
+			</div>
+			<div class="col-md-3">
+				<h2>Mid-Fielder</h2>
+					{% for p in players %}
+						{% if p.position == 'Mid-Fielder' %}
+						<div class="menu-item">
+								<h3>{{p.name}}</h3>
+								<p>{{p.description}}</p>	
+								{% if p.snap_url %}
+									<p><a target="_tab" href="{{ p.snap_url }}">Snap</a></p>
+								{% endif %}								
+								
+							</div>
+						{% endif %}
+					{% endfor %}
+				<h2>GoalKeeper</h2>
+					{% for p in players %}
+						{% if p.position == 'GoalKeeper' %}
+						<div class="menu-item">
+								<h3>{{p.name}}</h3>
+								<p>{{p.description}}</p>
+								{% if p.snap_url %}
+									<p><a target="_tab" href="{{ p.snap_url }}">Snap</a></p>
+								{% endif %}							
+								
+							</div>
+						{% endif %}
+					{% endfor %}
+			</div>
+			<div class="col-md-1"></div>
+		</div>
+	{% endif %}
+{% endblock %}

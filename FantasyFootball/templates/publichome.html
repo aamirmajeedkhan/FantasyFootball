@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Fantasy Football</h1>
+    <p class="lead">This is Fantasy Football home to a platform where we can build and create our own team with our favourite stars. Let's enjoy the game we all love.</p>
+    <div class="flash">
+        {% with messages = get_flashed_messages() %}
+        {% if messages%}
+        <ul>
+            {% for message in messages%}
+            <li><strong>{{ message}}</strong></li>
+            {% endfor %}            
+        </ul>
+        {% endif %}
+        {% endwith %}
+    </div>
+    
+</div>
+
+{% for item  in teams|batch(3,fill_with=None) %}
+    <div class="row">
+    {% for team in item%}
+    <div class="col-md-4">
+        <h2>{{team.name}}</h2>        
+        <a class="btn btn-default" href="{{url_for('showTeam', team_id = team.id)}}">Let's find out who is playing for {{team.name}} &raquo;</a>
+    </div>
+    {% endfor %}
+    </div>   
+{% endfor %}
+
+
+
+{% endblock %}

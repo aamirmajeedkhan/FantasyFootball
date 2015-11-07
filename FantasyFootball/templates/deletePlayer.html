@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Fantasy Football</h1>
+    <h2>Are you certain you want to delete {{player.name}} ?</h2>
+    <form action="#" method = 'post'>
+	<input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+	<button type="submit" class="btn btn-primary btn-large delete" id="submit" type="submit">
+	<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete</button>
+	<a href = '{{url_for('showTeam',team_id=player.team_id)}}'>
+		<button class="btn btn-primary btn-large delete" type="button">
+		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+	</a>
+
+</form>
+
+</div>
+
+{% endblock %}

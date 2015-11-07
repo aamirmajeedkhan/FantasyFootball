@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Fantasy Football</h1>
+    <h2>Add a New Player</h2>    
+    
+    
+</div>
+
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<form action="#" method = "post" enctype="multipart/form-data">
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<input type ="text" maxlength="50" class="form-control" name="name" placeholder="Name of the player">
+
+					<label for="description">Description:</label>
+					<textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="Description of the player"></textarea>
+
+					
+					<label for="position">Position:</label>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="position" id="course1" checked value="Striker">Striker
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="position" id="course2" value="Defender">Defender
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="position" id="course3" value="Mid-Fielder">Mid-Fielder
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="position" id="course4" value="GoalKeeper">GoalKeeper
+					  </label>
+					</div>
+
+					<label for="snap">Upload Snap:</label>
+					<input type="file" name="snap" placeholder="snap location">
+
+					<button type="submit" class="btn btn-primary btn-large" id="submit" type="submit">
+					<span class="glyphicon glyphicon-glass" aria-hidden="true"></span>Create</button>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}
+

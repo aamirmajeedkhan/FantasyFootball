@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Fantasy Football</h1>
+    <h2>Edit Player </h2>    
+    
+    
+</div>
+
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<form action="#" method = "post" enctype="multipart/form-data">
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<input type ="text" maxlength="100" class="form-control" name="name" value="{{player.name }}">
+
+					<label for="description">Description:</label>
+					<textarea class="form-control" maxlength="250" rows="3" name="description">{{player.description}}</textarea>
+					
+					<label for="position">Position:</label>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="position" id="position1" value="Striker" {% if player.position == 'Striker'%}checked{%endif%}>Striker
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="position" id="position2" value="Defender" {% if player.position == 'Defender' %}checked{%endif%}>Defender
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="position" id="position3" value="Mid-Fielder" {% if player.position == 'Mid-Fielder'%}checked{%endif%}>Mid-Fielder
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="position" id="position4" value="GoalKeeper" {% if player.position =='GoalKeeper'%}checked{%endif%}>GoalKeeper
+					  </label>
+					</div>
+
+					<label for="snap">Upload Snap:</label>
+					<input type="file" name="snap" placeholder="{{player.snap_url}}">
+
+					<button type="submit" class="btn btn-primary btn-large" id="submit" type="submit">
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save</button>
+					<a href = '{{url_for('showTeam',team_id=player.team_id)}}'>
+						<button class="btn btn-primary btn-large delete" type="button">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+					</a>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Fantasy Football</h1>
+    <h2>Add Team </h2>    
+    
+    
+</div>
+
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+		<form action="#" method="POST">
+		<input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+			<div class="form-group">
+			<label for="name">Name:</label>	
+			<input type="text" class="form-control" maxlength="100" name="name" placeholder="Team Name">
+
+			<label for="name">Description:</label>	
+			<textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="Description of the team"></textarea>
+			<button type="submit" class="btn btn-primary btn-large" id="submit" type="submit">
+					<span class="glyphicon glyphicon-glass" aria-hidden="true"></span>Create</button>
+			</div>
+		</form>
+		</div>
+	</div>
+{% endblock %}
